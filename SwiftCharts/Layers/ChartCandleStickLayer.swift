@@ -41,10 +41,15 @@ open class ChartCandleStickLayer<T: ChartPointCandleStick>: ChartPointsLayer<T> 
             context.addLine(to: CGPoint(x: screenItem.x, y: screenItem.lineBottom))
             context.strokePath()
             
-            context.setFillColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0)
-            context.setFillColor(screenItem.fillColor.cgColor)
-            context.fill(screenItem.rect)
-            context.stroke(screenItem.rect)
+            context.move(to: CGPoint(x: (screenItem.x - 10.0), y: (screenItem.lineTop - 20.0)))
+            context.addLine(to: CGPoint(x: screenItem.x, y: screenItem.lineTop))
+            context.addLine(to: CGPoint(x: (screenItem.x + 10.0), y: (screenItem.lineTop - 20.0)))
+            context.strokePath()
+            
+            context.move(to: CGPoint(x: (screenItem.x - 10.0), y: (screenItem.lineBottom + 20.0)))
+            context.addLine(to: CGPoint(x: screenItem.x, y: screenItem.lineBottom))
+            context.addLine(to: CGPoint(x: (screenItem.x + 10.0), y: (screenItem.lineBottom + 20.0)))
+            context.strokePath()
         }
     }
 
